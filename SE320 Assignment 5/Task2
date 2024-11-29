@@ -1,0 +1,21 @@
+
+2. Write a precondition or requires clause for the method removeDuplicates, so all duplicates
+from List lst are removed.
+
+//***********************************************
+//static void removeDuplicates(List lst)
+//requires: lst must not contain any null values,
+//and must be larger than 1 element.
+//***********************************************
+
+public static void removeDuplicates(List lst) {
+    if (lst == null || lst.size() == 0) return;
+    List copy = new ArrayList(lst);
+    Iterator elements = copy.iterator();
+    Object pre = elements.next();
+    while(elements.hasNext()) {
+        Object nex = elements.next();
+        if (pre.equals(nex)) lst.remove(nex);
+        else pre = nex;
+    }
+}
